@@ -12,8 +12,16 @@
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "build:dev": "rollup --config rollup.config.ts --configPlugin typescript --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cli",
+    "chovrio"
+  ],
+  "files": [
+    "bin",
+    "dist",
+    "template"
+  ],
+  "author": "chovrio",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-json": "^6.0.0",
