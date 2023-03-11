@@ -1,8 +1,6 @@
-<div align="center">
-<img height="360" src="ht
-
 # chovrio-cli
 
+<div align="center">
 <picture>
   <img alt="image" srcset="https://chart-nw7ku8zhv-astrues.vercel.app/jing.png">
 </picture>
