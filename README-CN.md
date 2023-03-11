@@ -4,7 +4,7 @@
 # chovrio-cli
 
 <picture>
-  <img alt="image" srcset="https://chart-d9dive9p8-astrues.vercel.app/%E9%9D%99.png">
+  <img alt="image" srcset="https://chart-nw7ku8zhv-astrues.vercel.app/jing.png">
 </picture>
 <p align="center">
     <br> <a href="README.md">English</a> | 中文

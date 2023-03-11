@@ -4,7 +4,7 @@
 # chovrio-cli
 
 <picture>
-  <img alt="image" srcset="https://chart-d9dive9p8-astrues.vercel.app/%E9%9D%99.png">
+  <img alt="image" srcset="https://chart-nw7ku8zhv-astrues.vercel.app/jing.png">
 </picture>
 <p align="center">
     <br> English | <a href="README-CN.md">中文</a>
@@ -17,7 +17,6 @@
 <a href="LICENSE" target="_blank">
     <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" />
 </a>
-
 <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-blue?style=flat-square&logo=typescript&logoColor=white" />
 
 <a href="https://github.com/yetone/openai-translator/releases" target="_blank">
