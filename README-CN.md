@@ -4,7 +4,6 @@
 # chovrio-cli
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://chart-d9dive9p8-astrues.vercel.app/%E9%9D%99.png">
   <img alt="NebulaGraph Data Intelligence Suite(ngdi)" src="https://chart-d9dive9p8-astrues.vercel.app/%E9%9D%99.png">
 </picture>
 <p align="center">
@@ -34,6 +33,7 @@
 
 </p>
 </div>
+
 # 前言
 
 好吧，它或许仅仅是一个脚手架。
