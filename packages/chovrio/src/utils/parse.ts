@@ -1,5 +1,5 @@
 import fs from 'fs'
-import type { Config } from '../types/template'
+import type { Config } from '../types'
 // 获得模板文件并解析成对象
 export default function parse() {
   const config = fs

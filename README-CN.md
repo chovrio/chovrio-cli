@@ -8,7 +8,7 @@
   <img alt="NebulaGraph Data Intelligence Suite(ngdi)" src="https://chart-d9dive9p8-astrues.vercel.app/%E9%9D%99.png">
 </picture>
 <p align="center">
-    <br> English | <a href="README-CN.md">中文</a>
+    <br> <a href="README.md">English</a> | 中文
 </p>
 <p align="center">
     <em>it's not just a scaffolding. - chovrio</em>
@@ -35,20 +35,20 @@
 
 </p>
 
-# Foreword
+# 前言
 
-Well, it might just be a scaffolding.
+好吧，它或许仅仅是一个脚手架。
 
-This project is for learning exchange only.
+本项目仅供学习交流使用。
 
-# Install
+# 安装
 
 ```shell
-npm install -g chovrio # Global installation
-pnpm add chovrio -D # Partial installation, as a development dependency
+npm i -g chovrio # 全局安装
+pnpm add chovrio -D # 局部安装，作为开发依赖
 ```
 
-# Project Dependencies
+# 项目依赖
 
 - rollup
 - typescript
@@ -57,17 +57,17 @@ pnpm add chovrio -D # Partial installation, as a development dependency
 - node-ssh
 - 以及一系列工程化工具
 
-# Realize Function
+# 实现功能
 
-Currently only two commands are available `create` and `deploy`
+目前只有两个命令可用`create`和`deploy`
 
-create is used to create a project template (but I didn't write the project template, and I will fill it up when I have time)
+create 用于创建项目模板(但是项目模板我没写，有空补上)
 
-deploy is used to deploy static resources to the server (deploy `dist` files)
+deploy 用于部署静态资源到服务器(部署`dist`文件)
 
-# Configuration File
+# 配置文件
 
-`chovrio.config.js`(currently only this filename is supported)
+`chovrio.config.js`(目前只支持这个文件名)
 
 ```js
 /**
@@ -75,7 +75,7 @@ deploy is used to deploy static resources to the server (deploy `dist` files)
  */
 export default {
   deploy: {
-    // Destination location ready to upload to server
+    // 准备上传到服务器的目标位置
     position: 'xxxx'
   }
 }
@@ -84,17 +84,13 @@ export default {
 `.env`
 
 ```properties
-host=xxx.xx.xx.xxx # server ip address
-user=root # login server username
-password=root # Corresponding user password
+host=xxx.xx.xx.xxx # 服务器ip地址
+user=root # 登录服务器用户名
+password=root # 对应用户密码
 ```
 
-It is also possible not to configure, and the information will be obtained through command line input and output.
+不配置也可，会以命令行输入输出的方式获取信息
 
-# Broken Thoughts
+# 碎碎念
 
-This professor frame borrows some ideas from vite, and currently realizes few functions. Originally, I wanted to use rollup or esbuild to encapsulate it at the bottom layer like vite to improve other functions. But `rspack` has been released these days, and I have no idea about this for the time being. It will be perfected later.
-
-# Notice
-
-This document may be different from Chinese when using Google Translate.
+这个教授架借鉴了 vite 的一些思路，目前实现的功能很少。本来想像 vite 一样在底层使用 rollup 或者 esbuild 封装一下，完善其它功能的。但是这几天`rspack`都出了，暂时没了这方面的想法了。后面获取会完善吧。

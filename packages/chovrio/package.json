@@ -1,9 +1,10 @@
 {
   "name": "chovrio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "type": "module",
+  "types": "./dist/type.d.ts",
   "bin": {
     "chovrio": "bin/chovrio.js"
   },
@@ -31,13 +32,16 @@
     "@types/inquirer": "^9.0.3",
     "@types/readline-sync": "^1.4.4",
     "rollup": "^3.17.3",
+    "rollup-plugin-dts": "^5.2.0",
     "typescript": "^4.9.5"
   },
   "dependencies": {
     "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
     "execa": "^7.0.0",
     "fs-extra": "^11.1.0",
     "inquirer": "^9.1.4",
+    "node-ssh": "^13.0.1",
     "ora": "^6.1.2",
     "picocolors": "^1.0.0",
     "readline-sync": "^1.4.10"
