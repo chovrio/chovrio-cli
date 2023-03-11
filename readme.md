@@ -1,6 +1,5 @@
 # chovrio-cli
 
-<div align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://chart-nw7ku8zhv-astrues.vercel.app/jing.png">
   <img alt="image" srcset="https://chart-nw7ku8zhv-astrues.vercel.app/jing.png">
@@ -31,7 +30,6 @@
 </a>
 
 </p>
-</div>
 
 # Foreword
 
