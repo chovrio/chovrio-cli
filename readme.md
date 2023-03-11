@@ -1,9 +1,5 @@
 # chovrio-cli
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://chart-nw7ku8zhv-astrues.vercel.app/jing.png">
-  <img alt="image" srcset="https://chart-nw7ku8zhv-astrues.vercel.app/jing.png">
-</picture>
 <p align="center">
     <br> English | <a href="README-CN.md">中文</a>
 </p>
