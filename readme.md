@@ -4,7 +4,7 @@
 # chovrio-cli
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://chart-d9dive9p8-astrues.vercel.app/%E9%9D%99.png">
+  <img alt="image" srcset="https://chart-d9dive9p8-astrues.vercel.app/%E9%9D%99.png">
 </picture>
 <p align="center">
     <br> English | <a href="README-CN.md">中文</a>
