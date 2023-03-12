@@ -47,7 +47,7 @@ pnpm add chovrio -D # Partial installation, as a development dependency
 - commander
 - dotenv
 - node-ssh
-- 以及一系列工程化工具
+- a range of engineering tools
 
 # Realize Function
 

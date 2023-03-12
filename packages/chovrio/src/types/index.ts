@@ -1,5 +1,1 @@
-export interface Config {
-  deploy?: {
-    position?: string
-  }
-}
+export * from './config'
