@@ -1,48 +1,49 @@
-import { NodeSSH } from 'node-ssh'
-import env from '../utils/env'
-import readline from 'readline-sync'
-import type { Command } from 'commander'
 import parse from '../utils/parse'
+import type { Command } from 'commander'
 import ora from 'ora'
 import pc from 'picocolors'
+import { NodeSSH } from 'node-ssh'
+import readline from 'readline-sync'
+import env from '../utils/env'
 export default function deploy(program: Command) {
   program
+    // 命令
     .command('deploy')
+    // 命令描述
     .description('deploy a project to server')
+    // 解析到这个命令后 要执行的操作
     .action(async () => {
       const config = parse()
       const ssh = new NodeSSH()
+      let host, username, password
       // 1.连接服务器
-      // 1.1 存在.env文件且有数据就读取文件连接
+      // 1.1 存在.env文件且具有数据就读取文件连接
       if (env.user && env.password && env.host) {
-        const connectSpinner = ora(pc.blue(`connect server...`)).start()
-        await ssh.connect({
-          host: env.host,
-          username: env.user,
-          password: env.password
-        })
-        connectSpinner.stop()
+        host = env.host
+        username = env.user
+        password = env.password
       } else {
         // 1.2 不存在就采取输入方式连接
-        const host = readline.question(
-          `Your server ip address${pc.blue('(host)')}:`
-        )
-        const username = readline.question(
+        host = readline.question(`Your server ip address${pc.blue('(host)')}:`)
+        username = readline.question(
           `The user name you want to log in to${pc.blue('(username)')}:`
         )
-        const password = readline.question(
-          `Your password${pc.blue('(password)')}:`
-        )
-        const connectSpinner = ora(pc.blue(`connect server...`)).start()
+        password = readline.question(`Your password${pc.blue('(password)')}:`)
+      }
+      const connectSpinner = ora(pc.blue(`connect server...`)).start()
+      try {
         await ssh.connect({
           host,
           username,
           password
         })
         connectSpinner.stop()
+        console.log(pc.green('服务器连接成功~'))
+      } catch (err) {
+        connectSpinner.stop()
+        console.log(pc.red('数据错误，连接失败' + err.message))
       }
-      console.log(pc.green('服务器连接成功~'))
-      // 2.删除原有文件夹的内容
+      // 2.删除原有文件夹内容
       const deleteSpinner = ora(pc.blue(`delete folder...`)).start()
       const remotePath = config?.deploy?.position || ''
       await ssh.execCommand(`rm -rf ${remotePath}`)
@@ -61,10 +62,9 @@ export default function deploy(program: Command) {
       uploadSpinner.stop()
       if (status) {
         console.log(pc.green('文件上传服务器成功~'))
-        process.exit(0)
       } else {
         console.log(pc.red('文件上传服务器失败'))
-        process.exit(0)
       }
+      process.exit(0)
     })
 }
