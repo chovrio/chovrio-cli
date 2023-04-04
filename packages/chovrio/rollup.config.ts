@@ -14,6 +14,19 @@ const clentConfig = defineConfig({
       file: path.resolve(__dirname, './dist/cli.js')
     }
   ],
+  external: [
+    'commander',
+    'inquirer',
+    'picocolors',
+    'ora',
+    'fs-extra',
+    'path',
+    'node-ssh',
+    'readline-sync',
+    'url',
+    'fs',
+    'dotenv'
+  ],
   plugins: [
     ts({ tsconfig: path.resolve(__dirname, './tsconfig.json') }),
     json(),
