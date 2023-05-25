@@ -23,7 +23,6 @@ export const loadConfigFromFile = async (
   if (flags === null) return {};
   const { isESM, isTS, resolvedPath } = flags;
   console.log(isESM, isTS, resolvedPath, 'test');
-
   // 2.加载配置文件，根据不同的格式，有不同的加载方法
   // 2.1 ESM 处理
   if (isESM) {

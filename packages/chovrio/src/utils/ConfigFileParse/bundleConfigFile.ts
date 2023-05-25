@@ -1,13 +1,16 @@
+import { pathToFileURL } from 'url';
+import { dynamicImport } from '../nodeVariable';
 import build from '../RollupFunc/build';
 
 export default async function bundleConfigFile(
-  filename: string,
+  filepath: string,
   isESM = false
 ): Promise<{ code: string; dependencies: string[] }> {
-  const result = await build(process.cwd(), filename, isESM);
-  console.log(result);
-  return {
-    code: 'text',
-    dependencies: ['']
-  };
+  const workDir = process.cwd();
+  const file = 'out';
+  await build(workDir, filepath, file, isESM);
+  const fileURL = pathToFileURL(`${workDir}/${file}`);
+  const userConfig = await dynamicImport(`${fileURL}.js`);
+  console.log(userConfig);
+  return userConfig;
 }

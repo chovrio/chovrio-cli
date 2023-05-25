@@ -7,10 +7,10 @@ export default function build(program: Command) {
     .description('project development')
     .action(() => {
       loadConfigFromFile('dev');
-      const server = express();
-      server.use(express.static(process.cwd()));
-      server.listen(3000, () => {
-        console.log('server running http://localhost:3000');
-      });
+      // const server = express();
+      // server.use(express.static(process.cwd()));
+      // server.listen(3000, () => {
+      //   console.log('server running http://localhost:3000');
+      // });
     });
 }

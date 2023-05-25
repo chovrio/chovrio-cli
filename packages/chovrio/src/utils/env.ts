@@ -1,3 +1,3 @@
-import * as dotenv from 'dotenv'
-dotenv.config()
-export default process.env
+import * as dotenv from 'dotenv';
+dotenv.config();
+export default process.env;
