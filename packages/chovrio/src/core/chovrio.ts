@@ -3,12 +3,13 @@ import { version } from '../../package.json'
 import build from '../command/build'
 import create from '../command/create'
 import deploy from '../command/deploy'
+import dev from '../command/dev'
 class Chovrio {
   program: Command
   commands: Array<(program: Command) => void>
   constructor() {
     this.program = program
-    this.commands = [create, build, deploy]
+    this.commands = [create, build, deploy, dev]
     this.init()
     this.program.option('-v, --version').action(() => {
       console.log(version)
