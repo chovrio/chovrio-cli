@@ -11,7 +11,8 @@ const clentConfig = defineConfig({
   input: './src/core/chovrio.ts',
   output: [
     {
-      file: path.resolve(__dirname, './dist/cli.js')
+      file: path.resolve(__dirname, './dist/cli.js'),
+      sourcemap: 'inline'
     }
   ],
   external: [
