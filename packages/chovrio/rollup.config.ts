@@ -26,7 +26,10 @@ const clentConfig = defineConfig({
     'readline-sync',
     'url',
     'fs',
-    'dotenv'
+    'dotenv',
+    'rollup',
+    '@rollup/plugin-typescript',
+    'module'
   ],
   plugins: [
     ts({ tsconfig: path.resolve(__dirname, './tsconfig.json') }),

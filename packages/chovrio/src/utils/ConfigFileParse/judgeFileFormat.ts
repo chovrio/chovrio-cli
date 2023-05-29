@@ -20,7 +20,6 @@ export default function judgeFileFormat(
       console.log('运行目录不合法');
       return null;
     }
-    console.log(path);
     const pkg = require(path);
     if (pkg && pkg.type === 'module') {
       isESM = true;

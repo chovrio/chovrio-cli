@@ -14,8 +14,4 @@ export default async function bundleConfigFile(
   const userConfig = await dynamicImport(`${fileURL}.js`);
   console.log(userConfig);
   return userConfig.default;
-  return {
-    code: '',
-    dependencies: []
-  };
 }

@@ -70,7 +70,7 @@ export default {
     // 准备上传到服务器的目标位置
     position: 'xxxx'
   }
-}
+};
 ```
 
 `.env`

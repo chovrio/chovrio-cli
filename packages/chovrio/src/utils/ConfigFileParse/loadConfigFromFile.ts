@@ -21,7 +21,6 @@ export const loadConfigFromFile = async (
   const flags = judgeFileFormat(configRoot, configFile);
   if (flags === null) return {};
   const { isESM, isTS, resolvedPath } = flags;
-  console.log(isESM, isTS, resolvedPath, 'test');
   // 2.加载配置文件，根据不同的格式，有不同的加载方法
   // 对配置文件进行打包，输出 code 代码文本和 dependcies 该文件的依赖
   const bundled = await bundleConfigFile(resolvedPath, isESM, isTS);
