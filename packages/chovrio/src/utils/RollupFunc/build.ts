@@ -22,9 +22,10 @@ export default async function build(
       // 对裸模式，进行 external 处理，即不打包到 bundle
       resolve(),
       commonjs(),
-      ts({
-        tsconfig: path.resolve(__dirname, '../tsconfig.json')
-      })
+      isTS &&
+        ts({
+          tsconfig: path.resolve(__dirname, '../tsconfig.json')
+        })
     ]
   };
   // 常用 outputOptions 配置
