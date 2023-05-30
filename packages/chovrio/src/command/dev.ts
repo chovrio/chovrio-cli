@@ -1,5 +1,5 @@
 import type { Command } from 'commander';
-import express from 'express';
+// import express from 'express';
 import { loadConfigFromFile } from '../utils/ConfigFileParse/loadConfigFromFile';
 export default function build(program: Command) {
   program

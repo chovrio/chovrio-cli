@@ -1,7 +1,4 @@
-import fs from 'fs';
-import { pathToFileURL } from 'url';
 // import { Config } from '../../types';
-import { dynamicImport, require } from '../nodeVariable';
 import bundleConfigFile from './bundleConfigFile';
 import judgeFileFormat from './judgeFileFormat';
 

@@ -1,9 +1,8 @@
-import { rollup, Plugin, OutputOptions } from 'rollup';
-import ts from '@rollup/plugin-typescript';
+import { Plugin, rollup, OutputOptions } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import ts from 'rollup-plugin-typescript2';
 import path from 'path';
-
 import { __dirname } from '../nodeVariable';
 export default async function build(
   workDir: string,
@@ -24,7 +23,8 @@ export default async function build(
       commonjs(),
       isTS &&
         ts({
-          tsconfig: path.resolve(__dirname, '../tsconfig.json')
+          tsconfig: path.resolve(__dirname, '../tsconfig.json'),
+          include: [filepath]
         })
     ]
   };

@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { pathToFileURL } from 'url';
 import { dynamicImport } from '../nodeVariable';
 import build from '../RollupFunc/build';
@@ -12,6 +14,7 @@ export default async function bundleConfigFile(
   await build(workDir, filepath, file, isESM, isTS);
   const fileURL = pathToFileURL(`${workDir}/${file}`);
   const userConfig = await dynamicImport(`${fileURL}.js`);
+  fs.rmSync(path.resolve(workDir, `${file}.js`));
   console.log(userConfig);
   return userConfig.default;
 }

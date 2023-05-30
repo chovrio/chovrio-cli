@@ -6,7 +6,4 @@
 
 原因：未知，额外 demo 中使用相同配置打包成功。这个难绷
 
-解决方案：在@rollup/plugin-typescript 执行前多使用两个插件
-
-- @rollup/plugin-node-resolve
-- @rollup/plugin-commonjs
+解决方案：使用 rollup-plugin-typescript2 插件，并且在 inlcude 添加配置文件绝对路径
