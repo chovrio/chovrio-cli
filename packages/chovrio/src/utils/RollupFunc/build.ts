@@ -2,6 +2,7 @@ import { Plugin, rollup, OutputOptions } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import ts from 'rollup-plugin-typescript2';
+// import ts from '@rollup/plugin-typescript';
 import path from 'path';
 import { __dirname } from '../nodeVariable';
 export default async function build(
@@ -33,14 +34,15 @@ export default async function build(
     {
       file: path.resolve(workDir, `${filename}.js`),
       // 编译输出格式
-      format: isESM ? 'esm' : 'cjs',
-      sourcemap: 'inline'
+      format: isESM ? 'esm' : 'cjs'
     }
     // 省略其它的输出配置
   ];
   try {
     // 1.调用 rollup 生成 bundle 对象
+    console.log(1);
     bundle = await rollup(inputOptions);
+    console.log(2);
     for (const outputOptions of outputOptionsList) {
       // 2.拿到 bundle 对象，根据每一份输出配置，调用 generate 和 write 方法分别生成和写入产物
       await bundle.generate(outputOptions);

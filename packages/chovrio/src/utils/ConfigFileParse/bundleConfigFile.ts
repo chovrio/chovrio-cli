@@ -15,6 +15,5 @@ export default async function bundleConfigFile(
   const fileURL = pathToFileURL(`${workDir}/${file}`);
   const userConfig = await dynamicImport(`${fileURL}.js`);
   fs.rmSync(path.resolve(workDir, `${file}.js`));
-  console.log(userConfig);
   return userConfig.default;
 }
