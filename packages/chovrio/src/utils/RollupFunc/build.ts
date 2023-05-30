@@ -1,10 +1,4 @@
-import {
-  Plugin,
-  rollup,
-  OutputOptions,
-  defineConfig,
-  InputPluginOption
-} from 'rollup';
+import { rollup, OutputOptions, defineConfig } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import ts from 'rollup-plugin-typescript2';

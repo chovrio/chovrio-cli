@@ -21,7 +21,6 @@ export const loadConfigFromFile = async (
   // 2.加载配置文件，根据不同的格式，有不同的加载方法
   // 对配置文件进行打包，输出 code 代码文本和 dependcies 该文件的依赖
   userConfig = await bundleConfigFile(resolvedPath, isESM, isTS);
-  console.log(userConfig);
   if (!userConfig) {
     // 加载普通的 CJS 格式的配置文件
     userConfig = {};
@@ -30,7 +29,6 @@ export const loadConfigFromFile = async (
   const config = await (typeof userConfig === 'function'
     ? userConfig(configEnv)
     : userConfig);
-  console.log('config', config);
   // 3.返回配置文件信息
   return {
     path: resolvedPath,
