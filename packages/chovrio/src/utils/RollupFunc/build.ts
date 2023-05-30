@@ -1,4 +1,10 @@
-import { Plugin, rollup, OutputOptions } from 'rollup';
+import {
+  Plugin,
+  rollup,
+  OutputOptions,
+  defineConfig,
+  InputPluginOption
+} from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import ts from 'rollup-plugin-typescript2';
@@ -15,20 +21,21 @@ export default async function build(
   let bundle;
   let buildFailed = false;
   // 常用 inputOptions 配置
-  const inputOptions = {
+  const inputOptions = defineConfig({
     input: filepath,
     external: [],
     plugins: [
       // 对裸模式，进行 external 处理，即不打包到 bundle
-      resolve(),
-      commonjs(),
+      resolve,
+      commonjs,
       isTS &&
         ts({
           tsconfig: path.resolve(__dirname, '../tsconfig.json'),
-          include: [filepath]
+          include: [filepath],
+          check: false
         })
     ]
-  };
+  });
   // 常用 outputOptions 配置
   const outputOptionsList: OutputOptions[] = [
     {
@@ -40,9 +47,7 @@ export default async function build(
   ];
   try {
     // 1.调用 rollup 生成 bundle 对象
-    console.log(1);
     bundle = await rollup(inputOptions);
-    console.log(2);
     for (const outputOptions of outputOptionsList) {
       // 2.拿到 bundle 对象，根据每一份输出配置，调用 generate 和 write 方法分别生成和写入产物
       await bundle.generate(outputOptions);

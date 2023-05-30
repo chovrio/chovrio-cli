@@ -1,7 +1,7 @@
 import type { RollupOptions } from 'rollup';
 
 export interface Config extends RollupOptions {
-  rollupOptions?: RollupOptions;
+  rollupOptions: RollupOptions;
   deploy?: {
     position: string;
   };
