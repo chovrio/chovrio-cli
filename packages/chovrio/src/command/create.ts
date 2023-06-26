@@ -37,6 +37,29 @@ export default function init(program: Command) {
       const realPath = await fs.realpath(process.cwd());
       const projectPath = realPath + '/' + name.toString();
       await fs.copy(resolve(__dirname, `../template/${template}`), projectPath);
+      const pkg = JSON.parse(
+        fs.readFileSync(`${projectPath}/package.json`, 'utf-8')
+      );
+      pkg.name = name;
+      fs.writeFileSync(
+        `${projectPath}/package.json`,
+        JSON.stringify(pkg, null, 2),
+        'utf-8'
+      );
+      if (template === 'react') {
+        fs.writeFileSync(
+          `${projectPath}/.eslintrc`,
+          JSON.stringify(React, null, 2),
+          'utf-8'
+        );
+      }
+      if (template === 'react + typescript') {
+        fs.writeFileSync(
+          `${projectPath}/.eslintrc`,
+          JSON.stringify(ReactTs, null, 2),
+          'utf-8'
+        );
+      }
       copySpinner.stop();
       const installSpinner = ora(
         pc.blue(`generate project by template...`)
@@ -46,3 +69,33 @@ export default function init(program: Command) {
       console.log(pc.green(`generate project by template`));
     });
 }
+const React = {
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended'
+  ],
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: '18.2' } },
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': 'warn'
+  }
+};
+
+const ReactTs = {
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended'
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': 'warn'
+  }
+};
