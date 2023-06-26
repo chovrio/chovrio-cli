@@ -32,7 +32,10 @@ const clentConfig = defineConfig({
     'module'
   ],
   plugins: [
-    ts({ tsconfig: path.resolve(__dirname, './tsconfig.json') }),
+    ts({
+      tsconfig: path.resolve(__dirname, './tsconfig.json'),
+      exclude: ['./template']
+    }),
     json(),
     terser({ toplevel: true })
   ]
