@@ -46,56 +46,16 @@ export default function init(program: Command) {
         JSON.stringify(pkg, null, 2),
         'utf-8'
       );
-      if (template === 'react') {
-        fs.writeFileSync(
-          `${projectPath}/.eslintrc`,
-          JSON.stringify(React, null, 2),
-          'utf-8'
-        );
-      }
-      if (template === 'react + typescript') {
-        fs.writeFileSync(
-          `${projectPath}/.eslintrc`,
-          JSON.stringify(ReactTs, null, 2),
-          'utf-8'
-        );
-      }
       copySpinner.stop();
       const installSpinner = ora(
         pc.blue(`generate project by template...`)
       ).start();
       process.chdir(projectPath);
       installSpinner.stop();
-      console.log(pc.green(`generate project by template`));
+      console.log(pc.green(`generate project by template\n\n`));
+
+      console.log(pc.yellow('Done now run:\n'));
+      console.log(pc.yellow(`cd ${name}`));
+      console.log(pc.yellow('pnpm install'));
     });
 }
-const React = {
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended'
-  ],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': 'warn'
-  }
-};
-
-const ReactTs = {
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended'
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': 'warn'
-  }
-};
